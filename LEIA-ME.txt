@@ -1,0 +1,31 @@
+# Site de aniversário — Ashley & Isaac
+
+## O que você precisa fazer
+
+1. Coloque 6 fotos na pasta `fotos` com estes nomes:
+   - `foto-01.jpg`
+   - `foto-02.jpg`
+   - `foto-03.jpg`
+   - `foto-04.jpg`
+   - `foto-05.jpg`
+   - `foto-06.jpg`
+
+2. Coloque a foto especial do bônus como:
+   - `foto-bonus.jpg`
+
+3. Se quiser música, coloque um arquivo MP3 em:
+   - `audio/musica.mp3`
+
+4. Abra `index.html` no navegador para testar.
+
+## Publicar no GitHub Pages
+
+Crie um repositório público no GitHub, envie `index.html`, as pastas `fotos` e `audio`, e depois ative:
+Settings → Pages → Deploy from a branch → main → / (root).
+
+O endereço ficará parecido com:
+https://SEU-USUARIO.github.io/NOME-DO-REPOSITORIO/
+
+## Observação
+
+Se as fotos ainda não estiverem na pasta, o site mostra um marcador indicando o nome do arquivo que deve ser colocado ali.

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111111">
+<title>URGENTE — Caso Ashley & Isaac</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#111;
+  --muted:#666;
+  --paper:#f5f1e8;
+  --paper2:#fffdf8;
+  --red:#b5141b;
+  --red2:#7d0b10;
+  --line:#cfc7b8;
+  --gold:#c9a65b;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#111;color:var(--ink);font-family:Inter,Arial,sans-serif}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg width='140' height='140' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");z-index:20}
+a{color:inherit}
+.paper{max-width:980px;margin:auto;background:var(--paper);min-height:100vh;box-shadow:0 0 60px #000}
+.section{padding:70px clamp(22px,6vw,70px);position:relative}
+.kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--red)}
+h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;margin:0}
+h1{font-size:clamp(50px,11vw,105px);line-height:.9;letter-spacing:-.055em}
+h2{font-size:clamp(38px,7vw,68px);line-height:.95}
+h3{font-size:30px}
+p{line-height:1.75}
+.masthead{padding:22px 30px;border-bottom:3px solid var(--ink);background:var(--paper2)}
+.mast-top{display:flex;justify-content:space-between;gap:15px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
+.mast-title{text-align:center;font-family:"Libre Baskerville",serif;font-size:clamp(30px,7vw,64px);font-weight:700;margin:10px 0 4px}
+.mast-sub{text-align:center;font-size:10px;letter-spacing:.18em;text-transform:uppercase}
+.alert{background:var(--red);color:white;text-align:center;padding:11px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;animation:blink 2.2s infinite}
+@keyframes blink{0%,90%,100%{opacity:1}95%{opacity:.75}}
+.hero{padding-top:55px}
+.hero-grid{display:grid;grid-template-columns:1.5fr .7fr;gap:35px;align-items:end}
+.headline{border-bottom:1px solid var(--ink);padding-bottom:28px}
+.deck{font-family:"Libre Baskerville",Georgia,serif;font-size:clamp(18px,3vw,25px);line-height:1.45;margin:25px 0}
+.byline{font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:800}
+.fake-box{border:2px solid var(--ink);padding:20px;transform:rotate(1deg);background:#eee9dd}
+.fake-box strong{display:block;font-family:"DM Serif Display";font-size:34px;line-height:1}
+.fake-box span{font-size:12px;display:block;margin-top:10px;line-height:1.5}
+.scroll-cue{text-align:center;margin-top:55px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;animation:bounce 1.8s infinite}
+@keyframes bounce{50%{transform:translateY(7px)}}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
+.photo{background:#ddd;border:10px solid #fff;box-shadow:0 10px 25px #0002;overflow:hidden;position:relative}
+.photo img{width:100%;display:block;aspect-ratio:4/5;object-fit:cover}
+.photo.landscape img{aspect-ratio:16/10}
+.placeholder{aspect-ratio:4/5;display:grid;place-items:center;text-align:center;padding:20px;background:linear-gradient(135deg,#ded8cc,#eee9df);color:#6b645a;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.caption{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);margin-top:10px}
+.quote{font-family:"Libre Baskerville",Georgia,serif;font-size:clamp(22px,4vw,34px);line-height:1.45;border-left:5px solid var(--red);padding-left:25px;margin:30px 0}
+.divider{height:1px;background:var(--line);margin:0 0 45px}
+.evidence-head{display:flex;justify-content:space-between;align-items:end;border-bottom:3px solid var(--ink);padding-bottom:15px;margin-bottom:25px}
+.evidence{display:grid;grid-template-columns:65px 1fr;gap:20px;padding:25px 0;border-bottom:1px solid var(--line)}
+.num{font-family:"DM Serif Display";font-size:42px;color:var(--red)}
+.evidence h3{font-size:25px;margin-bottom:8px}
+.evidence p{margin:0;color:#3f3b35}
+.note{background:#e7dfcf;border:1px solid #c8bda9;padding:25px;margin:35px 0}
+.note strong{color:var(--red)}
+.dark{background:#171717;color:#f5f1e8}
+.dark .divider{background:#555}
+.dark .kicker{color:#ef4a52}
+.timeline{border-left:2px solid #555;margin:35px 0;padding-left:30px}
+.t-item{position:relative;margin:0 0 35px}
+.t-item:before{content:"";width:10px;height:10px;background:var(--red);border:3px solid #171717;position:absolute;left:-38px;top:7px;border-radius:50%}
+.t-date{font-weight:800;color:#ef4a52;font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.t-item h3{margin:5px 0 8px}
+.heart-zone{text-align:center;padding:100px 25px;background:radial-gradient(circle at center,#4b1115 0,#171717 48%,#111 100%);overflow:hidden}
+.heart{font-size:85px;animation:pulse 1.5s infinite}
+@keyframes pulse{50%{transform:scale(1.14)}}
+.heart-zone h2{font-size:clamp(44px,9vw,86px)}
+.heart-zone p{max-width:650px;margin:25px auto;color:#d9d3ca}
+.letter{max-width:760px;margin:auto;font-family:"Libre Baskerville",Georgia,serif;font-size:clamp(16px,2vw,20px);line-height:2}
+.letter p{line-height:2}
+.signature{font-family:"DM Serif Display";font-size:42px;margin-top:40px;color:var(--red)}
+.final{text-align:center;background:var(--paper2)}
+.final .stamp{display:inline-block;border:5px solid var(--red);color:var(--red);padding:12px 20px;font-weight:900;letter-spacing:.15em;transform:rotate(-3deg);margin-bottom:30px}
+.final h2{font-size:clamp(45px,9vw,90px)}
+.bonus{background:#0d0d0d;color:white;text-align:center;min-height:80vh;display:flex;align-items:center;justify-content:center}
+.bonus-card{max-width:650px}
+.lock{font-size:58px;margin-bottom:20px}
+.bonus button{margin-top:25px;border:1px solid #fff;background:transparent;color:#fff;padding:16px 25px;font:800 12px Inter;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:.3s}
+.bonus button:hover{background:#fff;color:#111}
+.secret{display:none;margin-top:35px;animation:appear 1.2s ease forwards}
+.secret.show{display:block}
+.secret img{width:100%;max-height:70vh;object-fit:contain;background:#111}
+.secret p{font-family:"Libre Baskerville";font-size:22px;line-height:1.6}
+@keyframes appear{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.floating-heart{position:fixed;bottom:-30px;font-size:18px;color:#c51b24;pointer-events:none;z-index:30;animation:float 6s linear forwards}
+@keyframes float{to{transform:translateY(-110vh) rotate(20deg);opacity:0}}
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+.music{position:fixed;right:16px;bottom:16px;z-index:40;background:#111;color:white;border:1px solid #555;border-radius:99px;padding:10px 13px;font-size:11px;cursor:pointer}
+@media(max-width:720px){
+ .hero-grid,.two{grid-template-columns:1fr}
+ .section{padding:55px 22px}
+ .fake-box{transform:none}
+ .mast-top{font-size:9px}
+ .evidence{grid-template-columns:45px 1fr}
+ .num{font-size:32px}
+}
+</style>
+</head>
+<body>
+<div class="paper">
+
+<header class="masthead">
+  <div class="mast-top"><span>EDIÇÃO ESPECIAL</span><span>10 DE AGOSTO DE 2026</span><span>EXCLUSIVO</span></div>
+  <div class="mast-title">O DIÁRIO DO AMOR</div>
+  <div class="mast-sub">Notícias que ninguém pediu, mas alguém precisava investigar</div>
+</header>
+<div class="alert">🚨 ÚLTIMA HORA — CASO GRAVÍSSIMO EM INVESTIGAÇÃO 🚨</div>
+
+<section class="section hero reveal">
+  <div class="hero-grid">
+    <div>
+      <div class="kicker">Plantão extraordinário</div>
+      <h1>Ashley morre de amor por Isaac</h1>
+      <p class="deck">Jovem de 20 anos é oficialmente considerada "sem salvação" após sete meses de exposição contínua a um homem de 26 anos.</p>
+      <div class="byline">Por nossa equipe de investigação sentimental · Caso nº 17-01-2026</div>
+    </div>
+    <div class="fake-box">
+      <strong>CASO<br>GRAVE</strong>
+      <span>Especialistas alertam: a paciente apresenta sorrisos involuntários, saudade, vontade de abraço e planos de construir uma casinha.</span>
+    </div>
+  </div>
+  <div class="scroll-cue">↓ role para continuar a investigação ↓</div>
+</section>
+
+<section class="section reveal">
+  <div class="divider"></div>
+  <div class="kicker">Ato I · O início do caso</div>
+  <div class="two">
+    <div>
+      <h2>Setembro de 2025: os primeiros indícios</h2>
+      <p>Tudo começou no fim de setembro, aparentemente de forma inocente. Dois desconhecidos se encontraram por aplicativo, acharam um ao outro interessante e começaram a conversar.</p>
+      <p>As trocas eram boas. Havia curiosidade. Havia interesse. Havia aquele "hmm, tem alguma coisa aqui".</p>
+      <p>Então, por motivos ainda não completamente esclarecidos, os dois se afastaram e ficaram meses sem se falar.</p>
+      <p><strong>Investigadores classificam esse período como: "péssima decisão de ambas as partes".</strong></p>
+    </div>
+    <div>
+      <div class="photo">
+        <img src="fotos/foto-01.jpg" alt="Foto 1" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+        <div class="placeholder" style="display:none">Coloque aqui<br>foto-01.jpg</div>
+      </div>
+      <div class="caption">Evidência fotográfica nº 01 · Os primeiros capítulos</div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="two">
+    <div class="photo">
+      <img src="fotos/foto-02.jpg" alt="Foto 2" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+      <div class="placeholder" style="display:none">Coloque aqui<br>foto-02.jpg</div>
+    </div>
+    <div>
+      <div class="kicker">Novembro de 2025</div>
+      <h2>O misterioso "amigo"</h2>
+      <p>Meses depois, o suspeito retornou ao local do crime.</p>
+      <p>Ele contou que tinha um amigo que precisava de ajuda: gostava muito de uma garota, mas os dois tinham parado de se falar. O amigo queria continuar conversando, talvez evoluir para alguma coisa, mas precisava descobrir se ela ainda queria falar com ele.</p>
+      <div class="quote">"HOMEM É SUSPEITO DE TER INVENTADO UM 'AMIGO' PARA DESCOBRIR SE A GAROTA AINDA QUERIA FALAR COM ELE."</div>
+      <p>Após meses de investigação, nossa equipe confirmou a identidade do suposto amigo.</p>
+      <h3>Era ele mesmo. 😂</h3>
+    </div>
+  </div>
+</section>
+
+<section class="section dark reveal">
+  <div class="kicker">Ato II · A primeira evidência concreta</div>
+  <h2>17 de janeiro: o encontro que mudou tudo.</h2>
+  <div class="timeline">
+    <div class="t-item"><div class="t-date">17/01/2026</div><h3>Avenida Paulista</h3><p>Olhares intensos. Conversas. Uma blusa comprada especialmente para a ocasião. E uma química que os investigadores consideram "suspeitamente perfeita".</p></div>
+    <div class="t-item"><div class="t-date">Horas depois</div><h3>O carro</h3><p>O encontro se prolongou até a madrugada. Houve amassos quentes. O relógio avançou. A vontade de ir embora, aparentemente, não.</p></div>
+    <div class="t-item"><div class="t-date">Conclusão preliminar</div><h3>O encaixe</h3><p>Nascia a teoria que seria repetida inúmeras vezes: "eu sou o encaixe perfeito, sem mais, nem menos, perfeita para você".</p></div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="two">
+    <div>
+      <div class="kicker">Evidência fotográfica</div>
+      <h2>O caso começou a ficar sério.</h2>
+      <p>Os beijos continuaram encaixando. Os encontros aumentaram. E duas pessoas que tinham passado meses sem se falar começaram, convenientemente, a passar cada vez mais tempo juntas.</p>
+      <p>O terceiro encontro trouxe outro conjunto importante de provas: um pagode, uma Ashley tontinha e uma declaração profissional de carreira futura.</p>
+      <div class="note"><strong>Registro oficial:</strong><br>"Sabe o que eu vou ser? Juíza, para eu entrar e todos levantarem quando eu entrar." — Ashley, em circunstâncias não totalmente sóbrias.</div>
+      <p>Também houve lágrimas. Muitas. E a frase que entrou para os arquivos históricos:</p>
+      <div class="quote">"Pelo menos eu estava bonita."</div>
+    </div>
+    <div>
+      <div class="photo">
+        <img src="fotos/foto-03.jpg" alt="Foto 3" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+        <div class="placeholder" style="display:none">Coloque aqui<br>foto-03.jpg</div>
+      </div>
+      <div class="caption">Evidência fotográfica nº 03 · Testemunhas confirmam o envolvimento</div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="evidence-head"><div><div class="kicker">Relatório confidencial</div><h2>As evidências</h2></div><div class="kicker">06 registros</div></div>
+  <div class="evidence"><div class="num">01</div><div><h3>Coçar o ouvido de forma agressiva</h3><p>Investigadores ainda não sabem se se trata de uma mania ou de uma tentativa séria de arrancar o próprio ouvido. O caso permanece aberto.</p></div></div>
+  <div class="evidence"><div class="num">02</div><div><h3>A misteriosa ascensão dos docinhos</h3><p>Desde que Ashley apareceu, houve aumento significativo no consumo de doces após refeições salgadas. Coincidência? A ciência ainda investiga.</p></div></div>
+  <div class="evidence"><div class="num">03</div><div><h3>A cama traiçoeira</h3><p>Deitou, dormiu. "Vou só descansar um pouquinho" foi considerado pelos peritos um dos maiores golpes já aplicados por uma cama.</p></div></div>
+  <div class="evidence"><div class="num">04</div><div><h3>Ocorrência frequente de patos bem barulhentos</h3><p>As autoridades foram alertadas diversas vezes. O suspeito nega responsabilidade. As testemunhas, entretanto, são numerosas.</p></div></div>
+  <div class="evidence"><div class="num">05</div><div><h3>Dança suspeitamente sincronizada</h3><p>Ele dança de um jeito engraçado. O problema é que dança no ritmo. Ashley ri. O suspeito parece não se importar. Caso encerrado por falta de argumento.</p></div></div>
+  <div class="evidence"><div class="num">06</div><div><h3>Frases recorrentes e de procedência duvidosa</h3><p>"Você tem muito o que aprender ainda." · "Margarêêêtee." · "É tudo uma questão de tempo." — registros oficiais do relacionamento.</p></div></div>
+</section>
+
+<section class="section dark reveal">
+  <div class="two">
+    <div>
+      <div class="kicker">Ato III · Provas de convivência</div>
+      <h2>Em algum momento, virou vida.</h2>
+      <p>Vieram os filmes, séries, jantares na mesa, pagodes, parques, shoppings, cinemas, museus e exposições.</p>
+      <p>Vieram também as noites em que a cama traiçoeira venceu os dois, os cochilos no carro depois dos amassos e aquele amanhecer em que o tempo simplesmente passou.</p>
+      <p>E vieram os lugares que deixaram de ser apenas lugares porque agora carregavam uma história.</p>
+    </div>
+    <div class="photo landscape">
+      <img src="fotos/foto-04.jpg" alt="Foto 4" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+      <div class="placeholder" style="display:none">Coloque aqui<br>foto-04.jpg</div>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="kicker">Locais que viraram testemunhas</div>
+  <h2>Alguns lugares nunca mais serão os mesmos.</h2>
+  <div class="two" style="margin-top:35px">
+    <div>
+      <h3>Avenida Paulista</h3>
+      <p>O primeiro encontro. Onde os olhares começaram a contar uma história que nenhum dos dois sabia ainda como terminar.</p>
+      <h3>Museu da Independência</h3>
+      <p>Chuva, conversa e uma daquelas trocas que fazem duas pessoas perceberem que não estão apenas passando tempo juntas — estão construindo alguma coisa.</p>
+      <h3>Atibaia</h3>
+      <p>A primeira viagem de casal. Dia dos namorados. Um capítulo que ganhou endereço próprio.</p>
+    </div>
+    <div class="photo">
+      <img src="fotos/foto-05.jpg" alt="Foto 5" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+      <div class="placeholder" style="display:none">Coloque aqui<br>foto-05.jpg</div>
+    </div>
+  </div>
+</section>
+
+<section class="section dark reveal">
+  <div class="kicker">Ato IV · O que as testemunhas realmente contam</div>
+  <h2>Não era só sobre os momentos bons.</h2>
+  <div class="two" style="margin-top:40px">
+    <div>
+      <p>Ele já buscou Ashley na faculdade quando ela estava mal, ansiosa e sem ter dormido direito — até em dia de prova.</p>
+      <p>Já esperou ela vomitar no banheiro. Já cuidou dela quando estava sonolenta e bêbada. Já ficou acordado até tarde para conversar sobre conflitos, resolver discussões ou simplesmente fazer companhia quando o sono não vinha.</p>
+      <p>E, talvez mais importante: <strong>ele escuta.</strong></p>
+      <p>Escuta, compreende, repreende quando necessário e participa das decisões da vida. É justamente nesse conjunto de pequenas coisas que uma relação deixa de ser apenas um romance e começa a se tornar um lugar seguro.</p>
+    </div>
+    <div class="photo">
+      <img src="fotos/foto-06.jpg" alt="Foto 6" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+      <div class="placeholder" style="display:none">Coloque aqui<br>foto-06.jpg</div>
+    </div>
+  </div>
+</section>
+
+<section class="heart-zone reveal">
+  <div class="heart">♥</div>
+  <div class="kicker">Ato V · Resultado da investigação</div>
+  <h2>O caso nunca foi sobre morte.</h2>
+  <p>Depois de sete meses, nossa equipe percebeu que estava procurando a resposta no lugar errado.</p>
+</section>
+
+<section class="section final reveal">
+  <div class="letter">
+    <div class="kicker">Carta do aniversariante</div>
+    <h2 style="margin:18px 0 35px">Para o homem que fez a investigação perder o sentido.</h2>
+    <p>Meu amor,</p>
+    <p>Dos seus 26 anos, eu tive a sorte de viver sete meses ao seu lado. E talvez sete meses pareçam pouco diante de uma vida inteira, mas, para mim, foram suficientes para me fazer perceber o quanto eu sou feliz por você ter nascido e o quanto me sinto sortuda por ter conhecido você.</p>
+    <p>Eu me sinto feliz quando estou ao seu lado, quando converso com você e quando a gente compartilha nossas decisões, nossos pensamentos e nossos planos para o futuro. Eu amo a forma como você me escuta, me compreende e também me repreende quando é necessário. Amo a nossa comunicação e a maneira como você pensa e lida com a nossa relação.</p>
+    <p>Sei que você talvez não ligue tanto para aniversários ou comemorações, mas, se dependesse de mim, o dia de hoje seria um feriado nacional. Porque eu acho que você merece ser celebrado — não apenas pelo que você é hoje, mas por tudo que ainda vai se tornar.</p>
+    <p>Eu torço pelo seu sucesso, pelas suas conquistas e por todos os seus sonhos. E também quero estar aqui quando as coisas não saírem como você espera. Quero comemorar suas vitórias e segurar sua mão nas derrotas.</p>
+    <p>Desejo que a sua caminhada seja cheia de felicidade, paz, harmonia e muita sabedoria. E desejo, principalmente, que a nossa caminhada continue sendo construída com tudo aquilo que já existe entre nós e com tudo aquilo que ainda vamos viver.</p>
+    <p>Você é forte, batalhador, guerreiro e vencedor de todas as guerras. É sábio, inteligente e, acima de tudo, respeitoso. E é por tudo isso — e por tantas outras coisas que provavelmente eu passaria horas escrevendo — que eu <strong>morro de amor por você.</strong></p>
+    <p>Você é o homem da minha vida. E eu quero ser a mulher da sua vida daqui a mais sete meses, mais sete anos e por todos os capítulos que a gente ainda vai escrever.</p>
+    <p>Hoje eu só quero comemorar você. Não vejo a hora de te ver, te abraçar e poder dizer tudo isso olhando para você.</p>
+    <p>Feliz aniversário, meu preto. ❤️</p>
+    <div class="signature">Com amor,<br>Ashley</div>
+  </div>
+</section>
+
+<section class="section final reveal" style="padding-top:25px">
+  <div class="stamp">CASO ENCERRADO</div>
+  <h2>Ashley não morreu.</h2>
+  <h2 style="color:var(--red);margin-top:15px">Ashley só morre de amor pelo Isaac. ❤️</h2>
+  <p style="max-width:600px;margin:30px auto;font-family:'Libre Baskerville';font-size:18px">Investigação concluída. O aniversariante foi considerado oficialmente culpado por fazer Ashley se apaixonar.</p>
+</section>
+
+<section class="bonus">
+  <div class="bonus-card">
+    <div class="lock">🔐</div>
+    <div class="kicker">Arquivo confidencial · acesso exclusivo</div>
+    <h2 style="margin-top:15px">Uma última evidência foi encontrada.</h2>
+    <p>O conteúdo deste arquivo é confidencial e só pode ser acessado pelo aniversariante.</p>
+    <button id="openBonus">CLIQUE AQUI PARA A ÚLTIMA SURPRESA</button>
+    <div class="secret" id="secret">
+      <img src="fotos/foto-bonus.jpg" alt="Surpresa" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <div style="display:none;padding:35px;border:1px solid #555">Coloque aqui<br><strong>foto-bonus.jpg</strong></div>
+      <p>Porque uma investigação dessas jamais poderia terminar sem uma última prova. ❤️</p>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<button class="music" id="musicBtn" title="Ativar música">♫ música</button>
+<audio id="music" loop preload="none">
+  <source src="audio/musica.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})
+},{threshold:.12});
+reveals.forEach(el=>observer.observe(el));
+
+const music=document.getElementById('music');
+const musicBtn=document.getElementById('musicBtn');
+let playing=false;
+musicBtn.addEventListener('click', async()=>{
+  try{
+    if(!playing){await music.play();playing=true;musicBtn.textContent='♫ tocando';}
+    else{music.pause();playing=false;musicBtn.textContent='♫ música';}
+  }catch(err){alert('Coloque seu arquivo de música em audio/musica.mp3 e tente novamente.');}
+});
+
+document.getElementById('openBonus').addEventListener('click',()=>{
+  document.getElementById('secret').classList.add('show');
+  document.getElementById('openBonus').style.display='none';
+  for(let i=0;i<16;i++){
+    setTimeout(()=>{
+      const h=document.createElement('div');
+      h.className='floating-heart';
+      h.textContent=['♥','❤','♡'][Math.floor(Math.random()*3)];
+      h.style.left=Math.random()*100+'vw';
+      h.style.animationDuration=(4+Math.random()*3)+'s';
+      h.style.fontSize=(14+Math.random()*24)+'px';
+      document.body.appendChild(h);
+      setTimeout(()=>h.remove(),7000);
+    },i*100);
+  }
+});
+</script>
+</body>
+</html>
